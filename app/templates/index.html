@@ -50,10 +50,16 @@
             <p><strong>Fuerza de Resistencia al Avance</strong><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
                 id est laborum<br></p>
-            <!-- <div class="dropdown show"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="true" type="button">Forma</button>
-                <div class="dropdown-menu show"><a class="dropdown-item" href="#">Volkswagen Escarabajo</a><a class="dropdown-item" href="#">Lamborghini</a><a class="dropdown-item" href="#">Jeep&nbsp;</a></div>
-            </div>
-            <div style="width: 576px;margin: 25px;margin-left: 128px;"><canvas data-bs-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;0&quot;,&quot;0.4&quot;,&quot;0.8&quot;,&quot;1.2&quot;,&quot;1.6&quot;,&quot;2&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Revenue&quot;,&quot;backgroundColor&quot;:&quot;#4e73df&quot;,&quot;borderColor&quot;:&quot;#4e73df&quot;,&quot;data&quot;:[&quot;4500&quot;,&quot;5300&quot;,&quot;6250&quot;,&quot;7800&quot;,&quot;9800&quot;,&quot;15000&quot;],&quot;fill&quot;:true}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:true,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas></div> -->
+
+            <img src="/plot-{{coef}}.png" alt="my plot">
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.text_message.label }}<br>
+                    {{ form.text_message(size=32) }}
+                </p>
+                <p>{{ form.submit() }}</p>
+            </form>
         </div>
         <div class="input-group">
             <div class="input-group-prepend"></div>
