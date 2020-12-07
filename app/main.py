@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use('Agg')
 import random
 import requests
 import os
@@ -11,6 +13,8 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
 import io
+
+
 
 SECRET_KEY = os.urandom(32)
 app = Flask(__name__)
