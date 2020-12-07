@@ -6,9 +6,10 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, DecimalField
 from wtforms.validators import DataRequired
 from flask import jsonify
-
+import numpy as np
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-from matplotlib.figure import Figure
+from matplotlib.figure import   Figure
+import matplotlib.pyplot as plt
 import io
 
 SECRET_KEY = os.urandom(32)
@@ -41,12 +42,34 @@ def plot_png(coef):
 
 
 def create_figure(coef):
+    ca = coef
+    rho = 1.2
+    A = 0.1
+    velocidades = np.linspace(0,20,21)
+    cte = 0.5*rho*A*ca
+    arrastre = []
+
+    for vel in velocidades:
+        arrastre.append(vel*vel*cte)
+
+    plt.xlabel("Velocidad (m/s)")
+    plt.ylabel("Fuerza de Arrastre (N)")
+    plt.title("Fuerza de Arrastre vs Velocidad")
     fig = Figure()
+    # plt
     axis = fig.add_subplot(1, 1, 1)
-    xs = range(100)
-    ys = [random.randint(1, 50) * coef for x in xs]
-    axis.plot(xs, ys)
+    # xs = range(100)
+    # ys = [random.randint(1, 50) * coef for x in xs]
+    axis.plot(velocidades, arrastre)
+    # plt.plot(velocidades, arrastre)
+    # plt.xlabel('xlabel', fontsize=18)
+    # plt.ylabel('ylabel', fontsize=16)
+    # plt.savefig('/static/img/tablas/test.png')
+    fig.text(0.5, 0.04, 'Velocidad (m/s)', ha='center')
+    fig.text(0, 0.5, 'Fuerza de Arrastre (N)', va='center', rotation='vertical')
+    axis.title.set_text('Fuerza de Arrastre vs Velocidad')
     return fig
+    
 
 
 if __name__ == "__main__":
