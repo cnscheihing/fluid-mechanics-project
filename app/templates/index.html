@@ -80,14 +80,27 @@
                 Se puede notar como mientras más bajo el coeficiente de arrastre menor será la fuerza de arrastre.  
                 <br>
             </p>
+            <div class="row">
+                <div class="col">
+                    <img src="../static/img/formas_coef_arrastre.png" alt="my plot">
+                </div>
+                <div class="col">
+                    <<img src="../static/img/autos1.jpeg" alt="my plot">
+                </div>
+                <div class="col">
+                <img src="../static/img/autos2.jpeg" alt="my plot" style="max-height: 400px;">
+                </div>
             <div>
-                <img src="/plot-{{coef}}.png" alt="my plot">
-                <img src="../static/img/formas_coef_arrastre.png" alt="my plot">
+                <img src="/plot/{{drag_coef}}/{{sust_coef}}.png" alt="my plot">
                 <form action="" method="post" novalidate>
                     {{ form.hidden_tag() }}
                     <p>
                         {{ form.drag_coef.label }}<br>
-                        {{ form.drag_coef(size=32) }}
+                        {{ form.drag_coef(size=16) }}
+                    </p>
+                    <p>
+                        {{ form.sust_coef.label }}<br>
+                        {{ form.sust_coef(size=16) }}
                     </p>
                     <p>{{ form.submit() }}</p>
                 </form>
